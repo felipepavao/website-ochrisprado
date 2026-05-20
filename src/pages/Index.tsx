@@ -951,32 +951,19 @@ function FinalCTA() {
           Assim que possível eu entrarei em contato pra gente conversar, eu entender sua situação e, se fizer sentido pros dois lados, começamos.
         </p>
 
-        <div className="card-dark rounded-3xl p-8 border border-brand-red/20 mb-8 text-left">
-          <p className="text-brand-muted text-sm text-center mb-6">
+        <div className="card-dark rounded-3xl p-8 border border-brand-red/20 mb-8 text-center">
+          <p className="text-brand-muted text-sm mb-8">
             Mas atenção: Eu só trabalho com quem já chega pronto. Tem um trabalho real e disposição para criar seu posicionamento no Instagram. Meu compromisso é no resultado que iremos gerar juntos. Eu serei muito direto sobre se esse método faz sentido pra você agora ou não.
           </p>
 
-          <div className="space-y-4 mb-8">
-            {[
-              { label: "Seu nome", type: "text", placeholder: "Nome completo" },
-              { label: "Seu email", type: "email", placeholder: "seu@email.com" },
-              { label: "Sua profissão / negócio", type: "text", placeholder: "Ex: Nutricionista, Advogado, Dono de clínica…" },
-              { label: "Instagram atual (se tiver)", type: "text", placeholder: "@seuperfil" },
-            ].map((field) => (
-              <div key={field.label}>
-                <label className="block text-xs text-brand-muted uppercase tracking-widest mb-2">{field.label}</label>
-                <input
-                  type={field.type}
-                  placeholder={field.placeholder}
-                  className="w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-brand-cream placeholder:text-brand-muted focus:outline-none focus:border-brand-red/50 transition-colors text-sm"
-                />
-              </div>
-            ))}
-          </div>
+          <a
+            href="#"
+            className="inline-flex items-center justify-center w-full bg-brand-red hover:bg-brand-red-dark active:scale-95 text-white font-bold text-lg px-8 py-5 rounded-xl transition-all duration-200 glow-red"
+          >
+            Entrar na Lista de Espera →
+          </a>
 
-          <CTAButton label="Entrar na Lista de Espera →" className="w-full text-center" />
-
-          <p className="text-brand-muted text-xs mt-4 text-center">
+          <p className="text-brand-muted text-xs mt-4">
             Vagas são limitadas.
           </p>
         </div>
