@@ -27,14 +27,10 @@ function Hero() {
 
           {/* Text */}
           <div className="order-2 md:order-1">
-            <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-brand-red border border-brand-red/30 bg-brand-red/10 px-4 py-2 rounded-full mb-8">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-brand-red border border-brand-red/30 bg-brand-red/10 px-4 py-2 rounded-full mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-red animate-pulse" />
-              Mentoria Individual · Vagas Limitadas
+              Método Hábito Viral® · Vagas Limitadas
             </span>
-
-            <p className="text-brand-red font-semibold text-sm uppercase tracking-widest mb-3">
-              Mentoria Método Hábito Viral®
-            </p>
 
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.2] mb-6 text-brand-cream">
               O programa que instala autoridade, crescimento orgânico e receita no Instagram
