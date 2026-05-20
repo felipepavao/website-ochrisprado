@@ -77,16 +77,16 @@ function Hero() {
                 alt="Chris Prado"
                 className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-full border-4 border-brand-red/40"
               />
-              <div className="absolute -bottom-4 -left-4 md:-left-8 bg-brand-bg-card border border-white/10 rounded-2xl px-4 py-3 shadow-2xl">
+              <div className="absolute -bottom-4 -left-8 hidden md:flex flex-col bg-brand-bg-card border border-white/10 rounded-2xl px-4 py-3 shadow-2xl">
                 <div className="text-xs text-brand-muted mb-0.5">Resultado</div>
-                <div className="text-sm font-bold text-brand-cream">+500K seguidores · &lt; 1 ano · R$0 em anúncios</div>
+                <div className="text-sm font-bold text-brand-cream">+500K seguidores · menos de 1 ano · R$0 em anúncios</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Lede */}
-        <div className="mt-20 md:mt-24 max-w-3xl mx-auto text-center">
+        <div className="mt-10 md:mt-14 max-w-3xl mx-auto text-center">
           <p className="text-[#A0A0A0] text-lg leading-relaxed mb-4">
             O que você vai ler a seguir não tem a ver com postar mais. Tem a ver com criar um ativo que continua trabalhando por você, enquanto você atende paciente, fecha contrato ou toca o seu negócio.
           </p>
@@ -94,7 +94,13 @@ function Hero() {
             Se você é profissional liberal ou dono(a) de empresa estabelecido(a) e sabe que deveria ser mais reconhecido(a) do que é... continue lendo esta carta.
           </p>
           <div className="mt-8 flex justify-center">
-            <span className="text-brand-red text-3xl animate-bounce">↓</span>
+            <button
+              onClick={() => document.getElementById('secao-dor')?.scrollIntoView({ behavior: 'smooth' })}
+              className="text-brand-red text-3xl animate-bounce focus:outline-none"
+              aria-label="Continuar lendo"
+            >
+              ↓
+            </button>
           </div>
         </div>
       </div>
@@ -108,7 +114,7 @@ function Hero() {
 
 function Pain() {
   return (
-    <section className="bg-[#111111] py-20 md:py-28">
+    <section id="secao-dor" className="bg-[#111111] py-20 md:py-28">
       <div className="max-w-3xl mx-auto px-5">
 
         <h2 className="font-serif text-3xl md:text-5xl font-bold text-brand-cream leading-tight mb-10 text-center">
@@ -430,20 +436,7 @@ function Proof() {
           </blockquote>
         </div>
 
-        {/* Testimonial placeholders */}
-        <div className="grid md:grid-cols-2 gap-4">
-          {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="card-dark rounded-2xl p-6 border border-dashed border-white/10 text-center opacity-40">
-              <div className="w-10 h-10 rounded-full bg-white/5 mx-auto mb-3" />
-              <div className="space-y-2">
-                <div className="h-2.5 bg-white/5 rounded-full w-3/4 mx-auto" />
-                <div className="h-2.5 bg-white/5 rounded-full w-full" />
-                <div className="h-2.5 bg-white/5 rounded-full w-2/3 mx-auto" />
-              </div>
-              <p className="text-brand-muted text-xs mt-4">Depoimento em breve</p>
-            </div>
-          ))}
-        </div>
+
       </div>
     </section>
   );
@@ -497,7 +490,7 @@ const encounters = [
 ];
 
 function Program() {
-  const [open, setOpen] = useState<number | null>(null);
+  const [open, setOpen] = useState<number | null>(0);
 
   return (
     <section className="bg-brand-bg py-20 md:py-28">
@@ -688,9 +681,9 @@ function WhatYouGet() {
               <span className="text-brand-gold font-semibold text-sm shrink-0">{row.value}</span>
             </div>
           ))}
-          <div className="bg-brand-red/10 border-t border-brand-red/20 flex items-center justify-between gap-4 px-5 py-5">
-            <span className="font-bold text-brand-cream">VALOR TOTAL</span>
-            <span className="font-bold text-brand-cream">R$ 24.000</span>
+          <div className="bg-[#1a1a1a] border-t border-white/10 flex items-center justify-between gap-4 px-5 py-5">
+            <span className="text-brand-muted text-sm">Valor total se contratado separadamente</span>
+            <span className="text-brand-muted line-through font-semibold">R$ 24.000</span>
           </div>
         </div>
 
@@ -1006,7 +999,7 @@ function StickyCTA() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const handler = () => setVisible(window.scrollY > 600);
+    const handler = () => setVisible(window.scrollY > 1500);
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);

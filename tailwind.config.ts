@@ -25,7 +25,7 @@ export default {
           "bg-card": "#141414",
           "bg-alt": "#111111",
           cream: "#F5F0E8",
-          muted: "#7A7A7A",
+          muted: "#909090",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
