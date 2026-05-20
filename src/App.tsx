@@ -9,6 +9,7 @@ import Trabalhos from "@/pages/Trabalhos";
 import Blog from "@/pages/Blog";
 import Contato from "@/pages/Contato";
 import NotFound from "@/pages/NotFound";
+import HomeAlterada from "@/pages/HomeAlterada";
 
 const queryClient = new QueryClient();
 
@@ -19,7 +20,7 @@ const ScrollToTop = () => {
 };
 
 // Sales letter pages get no Navbar/Footer — pure reading experience
-const SALES_ROUTES = ["/"];
+const SALES_ROUTES = ["/", "/home-alterada"];
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const { pathname } = useLocation();
@@ -47,6 +48,7 @@ const App = () => (
           <Route path="/trabalhos" element={<Trabalhos />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contato" element={<Contato />} />
+          <Route path="/home-alterada" element={<HomeAlterada />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
