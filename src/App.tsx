@@ -14,31 +14,42 @@ const queryClient = new QueryClient();
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
   return null;
+};
+
+// Sales letter pages get no Navbar/Footer — pure reading experience
+const SALES_ROUTES = ["/"];
+
+const Layout = ({ children }: { children: React.ReactNode }) => {
+  const { pathname } = useLocation();
+  const isSalesPage = SALES_ROUTES.includes(pathname);
+
+  if (isSalesPage) return <>{children}</>;
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-1">{children}</main>
+      <Footer />
+    </div>
+  );
 };
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
       <ScrollToTop />
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-1">
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/sobre" element={<Sobre />} />
-            <Route path="/trabalhos" element={<Trabalhos />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/contato" element={<Contato />} />
-            {/* ADD CUSTOM ROUTES ABOVE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/sobre" element={<Sobre />} />
+          <Route path="/trabalhos" element={<Trabalhos />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contato" element={<Contato />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   </QueryClientProvider>
 );
